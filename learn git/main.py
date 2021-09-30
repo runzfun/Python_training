@@ -4,5 +4,5 @@ def hello(user_name):
 
 if __name__ == "__main__":
     hello(
-        (input('Enter you name: '))
+        (input('Enter you name, bro: '))
     )
