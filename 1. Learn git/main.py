@@ -6,3 +6,12 @@ if __name__ == "__main__":
     hello(
         (input('Enter you name, bro: '))
     )
+
+
+def deco_fucn():
+    pass
+
+
+@deco_fucn
+def get_html(html):
+    pass
