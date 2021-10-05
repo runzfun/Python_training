@@ -6,7 +6,7 @@ class Character:
     __DIFFICULTY: int = 1
     __slots__ = ['_race_stat', 'race', 'hp', 'dmg', 'crit', 'inventory']
 
-    def __init__(self, race, hp=100):
+    def __init__(self, race, hp=300):
         self._race_stat = Character.races().get(race)
         self.race = race
         self.hp = hp * Character.__DIFFICULTY
@@ -83,7 +83,7 @@ class EnemiesGenerate:
 
     def create_enemies(self):
         enemies = list(Character.races().keys())
-        for item in range(1, randint(1,20)):
+        for item in range(1, randint(1, 20)):
             enemy = choice(enemies)
             print(f'Создан враг {enemy}')
             self.enemies.append(
@@ -91,12 +91,24 @@ class EnemiesGenerate:
             )
             time.sleep(2)
 
+class PlayerEvent:
+    def __init__(self, player):
+        self.enemies = EnemiesGenerate()
+
+    def eventloop(self):
+        pass
+
+    def combat(self, player):
+        enemy = self.enemies.pop()
+
+
+
 
 class Game:
     def __init__(self):
         self.Player = Character.heropick()
         Character.change_difficulty()
-        self.enemy = EnemiesGenerate()
+
 
 
 if __name__ == '__main__':
